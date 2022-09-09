@@ -1,0 +1,2 @@
+# rickAndMorty
+Prueba frontend Enequipo
