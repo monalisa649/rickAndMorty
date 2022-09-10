@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { CharacterService } from '../../services/character.service';
 
 @Component({
@@ -8,17 +9,11 @@ import { CharacterService } from '../../services/character.service';
 })
 export class CharacteresComponent implements OnInit {
 
-  constructor( private characterService : CharacterService) { }
+  constructor( private characterService : CharacterService ) { }
 
   ngOnInit(): void {
-    this.getCharacteres()
-  }
-
-  public getCharacteres () {
-    return this.characterService.getCharacteres()
-    .subscribe(res => {
-      console.log(res, 'res')
-    })
 
   }
+
+
 }

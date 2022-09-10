@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharacteresComponent } from './characteres/components/characteres/characteres.component';
@@ -20,6 +21,7 @@ import { CardComponent } from './characteres/components/characteres/pages/card/c
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
