@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Component, Inject, OnInit } from '@angular/core';
 import { CharacterService } from '../../services/character.service';
+
 
 @Component({
   selector: 'app-characteres',
@@ -9,11 +9,13 @@ import { CharacterService } from '../../services/character.service';
 })
 export class CharacteresComponent implements OnInit {
 
-  constructor( private characterService : CharacterService ) { }
+  constructor(private characterService : CharacterService ) { }
 
   ngOnInit(): void {
 
   }
+
+
 
 
 }

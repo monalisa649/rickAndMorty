@@ -1,4 +1,4 @@
-<div id="cards" class="grid grid-cols-1 gap-4 sm:grid-cols-2  md:grid-cols-2 lg:grid-cols-3 xs:p-0 justify-items-center">
+<div id="cards" class="grid grid-cols-1 gap-4 sm:grid-cols-2  md:grid-cols-2 lg:grid-cols-3 xs:p-0 justify-items-center" infinite-scroll (scrolled)="scrollDown()">
   <div class="xs:w-full sm:w-64 md:w-64 shadow-md rounded-lg bg-silver" *ngFor="let character of characteres ">
     <div class="w-full" (click)=" goDetailCharacter(character.id)">
       <img src="{{character.image}}" alt="personajes" class="w-full h-48  rounded-lg">
@@ -7,8 +7,11 @@
       <p>Nombre : {{character.name}}</p>
       <p>Estado : {{character.status}}</p>
       <p>Especie:{{character.species}}</p>
-      <p class="xs:truncate truncate">Ultima localización: {{character.location.name}}</p>
+      <p class="xs:truncate truncate">Ultima localización: {{character.location.name | slice: 0 : 15}}</p>
       <p >Ultimo episodio : <a class="text-tahiti" target="_blank" href={{character.episode[character.episode.length]}}>Ver</a>  </p>
     </div>
   </div>
 </div>
+<button *ngIf="showGoUpButton" class="bg-green" (click)="scrollTop()">
+  Subir
+</button>
