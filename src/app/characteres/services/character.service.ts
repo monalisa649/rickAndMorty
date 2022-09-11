@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Character } from '../models/character';
 
@@ -8,6 +7,7 @@ import { Character } from '../models/character';
   providedIn: 'root'
 })
 export class CharacterService {
+  favorites : any = []
 
   constructor(private http: HttpClient ) { }
 
@@ -22,5 +22,13 @@ export class CharacterService {
 
   public getEpisode(id: number){
     return this.http.get(`${environment.API}/episode`)
+  }
+
+  public addFavorite(character : string){
+    this.favorites.push(character)
+    if(!localStorage.getItem('favoritos')){
+      localStorage.setItem( "favoritos", '[]')
+    }
+    localStorage.setItem( "favoritos", JSON.stringify(this.favorites))
   }
 }

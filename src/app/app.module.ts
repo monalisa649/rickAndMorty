@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { CharacteresComponent } from './characteres/components/characteres/characteres.component';
 import { CharacterComponent } from './characteres/components/detailCharacter/character.component';
 import { CardComponent } from './characteres/components/characteres/pages/card/card.component';
+import { AddFavoritesDirective } from './characteres/directives/add-favorites.directive';
+
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { CardComponent } from './characteres/components/characteres/pages/card/c
     AppComponent,
     CharacteresComponent,
     CharacterComponent,
-    CardComponent
+    CardComponent,
+    AddFavoritesDirective,
+
   ],
   imports: [
     BrowserModule,

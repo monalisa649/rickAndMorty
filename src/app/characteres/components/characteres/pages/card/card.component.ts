@@ -1,10 +1,10 @@
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
-import { Character } from 'src/app/characteres/models/character';
 import { DOCUMENT } from '@angular/common';
 
 import { CharacterService } from 'src/app/characteres/services/character.service';
+import { Character } from 'src/app/characteres/models/character';
 type RequestInfo = {
   next: string;
 };
@@ -70,7 +70,7 @@ export class CardComponent implements OnInit {
         this.characteres = [...this.characteres, ...results];
         this.info = info;
       } else {
-        //this.characteres = [];
+        this.characteres = [];
       }
     })
 
@@ -80,6 +80,11 @@ export class CardComponent implements OnInit {
     this.router.navigate([`detalle/${id}`])
   }
 
+
+  public addFavorite(character : any){
+
+   this.characterService.addFavorite(character)
+  }
 
 
 
