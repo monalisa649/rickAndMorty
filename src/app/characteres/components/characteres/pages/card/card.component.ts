@@ -61,10 +61,9 @@ export class CardComponent implements OnInit {
       take(1)
     )
     .subscribe((res: any) => {
-      console.log(res,'res')
       if (res?.results?.length) {
         const { info, results } = res;
-        console.log(res,'res')
+
         this.characteres = [...this.characteres, ...results];
         this.info = info;
       } else {
@@ -80,14 +79,9 @@ export class CardComponent implements OnInit {
 
 
   public addFavorite(character : any){
-
     let item = localStorage.getItem("favoritos")
     if (item){
       item = JSON.parse(item)
-
-        console.log(item)
-        console.log(localStorage.length,'length')
-
     }
    this.characterService.addFavorite(character)
   }

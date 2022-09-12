@@ -13,7 +13,7 @@ export class CharacterComponent implements OnInit {
   public character! :any
   public id! : number
   public idsEpisodes : any
-
+  public episodes : any
   constructor(private characterService : CharacterService, private route : ActivatedRoute ) { }
 
   ngOnInit(): void {
@@ -30,12 +30,14 @@ export class CharacterComponent implements OnInit {
 
     })
   }
-
+/**
+ *
+ * @param id
+ */
   public getCharacter(id: number){
     this.characterService.getCharacter(this.id)
     .subscribe((res: any)=> {
       this.character = res
-      console.log(this.character,'character')
     })
   }
 
@@ -53,13 +55,16 @@ export class CharacterComponent implements OnInit {
 
   public getEpidosesByIds(idsEpidoes : number []) {
     this.characterService.getEpisodeByIds(this.idsEpisodes)
-      .subscribe(console.log)
+      .subscribe((res : any) => {
+        this.episodes = res
+      })
   }
 
 
   public getEpisode (id:number){
     this.characterService.getEpisode(this.id)
-    .subscribe(console.log)
+    .subscribe()
+
   }
 
 }
