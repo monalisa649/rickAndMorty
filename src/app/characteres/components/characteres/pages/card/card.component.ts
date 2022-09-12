@@ -21,12 +21,10 @@ export class CardComponent implements OnInit {
     next: '',
   };
 
-  private hideScrollHeight = 200;
-  private showScrollHeight = 500;
-  public showGoUpButton = false;
-
-
-
+  private hideScrollHeight = 400
+  private showScrollHeight = 500
+  public showGoUpButton = false
+  private colorButton : boolean = false
 
   constructor(@Inject(DOCUMENT) private document: Document, private characterService : CharacterService, private router : Router) { }
 
@@ -83,6 +81,14 @@ export class CardComponent implements OnInit {
 
   public addFavorite(character : any){
 
+    let item = localStorage.getItem("favoritos")
+    if (item){
+      item = JSON.parse(item)
+
+        console.log(item)
+        console.log(localStorage.length,'length')
+
+    }
    this.characterService.addFavorite(character)
   }
 

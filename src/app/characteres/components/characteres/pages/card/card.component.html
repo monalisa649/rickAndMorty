@@ -1,5 +1,5 @@
-<div id="cards" class="grid grid-cols-1 gap-4 sm:grid-cols-2  md:grid-cols-2 lg:grid-cols-3 xs:p-0 justify-items-center" infinite-scroll (scrolled)="scrollDown()">
-  <div class="xs:w-full sm:w-64 md:w-64 shadow-md rounded-lg bg-silver" *ngFor="let character of characteres; let i=index ">
+<div id="cards" class="grid grid-cols-1 gap-4 sm:grid-cols-2 p-6 md:grid-cols-2 lg:grid-cols-3 xs:p-2 justify-items-center" infinite-scroll (scrolled)="scrollDown()">
+  <div class="xs:w-full sm:w-64 md:w-64 shadow-md rounded-lg bg-silver w-full min-w-max" *ngFor="let character of characteres; let i=index ">
     <div class="w-full" (click)=" goDetailCharacter(character.id)">
       <img src="{{character.image}}" alt="personajes" class="w-full h-48  rounded-lg">
     </div>

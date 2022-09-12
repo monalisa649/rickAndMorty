@@ -12,6 +12,7 @@ import { CharacterService } from '../../services/character.service';
 export class CharacterComponent implements OnInit {
   public character! :any
   public id! : number
+  public idsEpisodes : any
 
   constructor(private characterService : CharacterService, private route : ActivatedRoute ) { }
 
@@ -19,6 +20,7 @@ export class CharacterComponent implements OnInit {
     this.getIdParams()
 
     this.getEpisode(this.id)
+    this.getEpisodeCharacter()
   }
 
   getIdParams() {
@@ -36,6 +38,24 @@ export class CharacterComponent implements OnInit {
       console.log(this.character,'character')
     })
   }
+
+  public getEpisodeCharacter(){
+    this.characterService.getEpisodeCharacter(this.id)
+    .subscribe(res =>{
+      let array = res
+      this.idsEpisodes = array.map((element : any) => {
+        return element.split('/').pop().slice('')
+       })
+       this.idsEpisodes = this.idsEpisodes.map((element:string) => parseInt(element));
+       this.getEpidosesByIds(this.idsEpisodes)
+    })
+  }
+
+  public getEpidosesByIds(idsEpidoes : number []) {
+    this.characterService.getEpisodeByIds(this.idsEpisodes)
+      .subscribe(console.log)
+  }
+
 
   public getEpisode (id:number){
     this.characterService.getEpisode(this.id)
