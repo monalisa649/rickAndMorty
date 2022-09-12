@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { CharacterService } from '../../services/character.service';
+
 
 
 @Component({
@@ -9,7 +9,7 @@ import { CharacterService } from '../../services/character.service';
 })
 export class CharacteresComponent implements OnInit {
 
-  constructor(private characterService : CharacterService ) { }
+  constructor() { }
 
   ngOnInit(): void {
 

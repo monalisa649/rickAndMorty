@@ -17,5 +17,7 @@ module.exports = {
       'silver': '#ecebff',
     },
   },
-  plugins: [],
+  plugins: [
+
+  ],
 }

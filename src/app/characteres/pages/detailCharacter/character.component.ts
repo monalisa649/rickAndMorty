@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Character } from '../../models/character';
-import { Result } from '../../models/characterInterface';
 import { CharacterService } from '../../services/character.service';
+
 
 @Component({
   selector: 'app-character',
@@ -18,11 +17,13 @@ export class CharacterComponent implements OnInit {
 
   ngOnInit(): void {
     this.getIdParams()
-
     this.getEpisode(this.id)
     this.getEpisodeCharacter()
   }
 
+  /**
+   * Obtiene el parametro de la ruta activa y consulta todos los personajes
+   */
   getIdParams() {
     this.route.params.subscribe(params => {
       this.id = params['id']
@@ -31,8 +32,8 @@ export class CharacterComponent implements OnInit {
     })
   }
 /**
- *
- * @param id
+ *Obtiene la información del personaje
+ * @param id id del personaje
  */
   public getCharacter(id: number){
     this.characterService.getCharacter(this.id)
@@ -40,6 +41,10 @@ export class CharacterComponent implements OnInit {
       this.character = res
     })
   }
+
+  /**
+   * Obtiene arreglo id de episodios del personaje
+   */
 
   public getEpisodeCharacter(){
     this.characterService.getEpisodeCharacter(this.id)
@@ -52,6 +57,11 @@ export class CharacterComponent implements OnInit {
        this.getEpidosesByIds(this.idsEpisodes)
     })
   }
+
+/**
+ * Consulta la información de cada uno de los episodios
+ * @param idsEpidoes ids de los episodios
+ */
 
   public getEpidosesByIds(idsEpidoes : number []) {
     this.characterService.getEpisodeByIds(this.idsEpisodes)

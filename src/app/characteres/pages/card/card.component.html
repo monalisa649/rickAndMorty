@@ -8,10 +8,10 @@
       <p>{{character.status}}</p>
       <p>{{character.species}}</p>
       <p class="xs:truncate truncate">{{character.location.name | slice: 0 : 20}}</p>
-      <p >Ultimo episodio </p>
+      <!-- <p >Ultimo episodio </p> TODO-->
     </div>
     <div class="flex flex-row-reverse">
-      <button  class="px-4 pb-4 text-xl" (click)="addFavorite(character.name)">&hearts;</button>
+      <button data-tooltip-target="tooltip-hover" data-tooltip-trigger="hover"  class="px-4 pb-4 text-xl" (click)="addFavorite(character.name)">&hearts;</button>
     </div>
 
   </div>

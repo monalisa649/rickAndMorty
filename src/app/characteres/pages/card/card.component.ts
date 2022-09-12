@@ -2,10 +2,10 @@ import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
+import { CharacterService } from '../../services/character.service';
 
-import { CharacterService } from 'src/app/characteres/services/character.service';
-import { Character } from 'src/app/characteres/models/character';
-type RequestInfo = {
+
+type Info = {
   next: string;
 };
 @Component({
@@ -17,7 +17,7 @@ export class CardComponent implements OnInit {
   characteres: any = []
   private page = 1
   private query! : string
-  info: RequestInfo = {
+  info: Info = {
     next: '',
   };
 
