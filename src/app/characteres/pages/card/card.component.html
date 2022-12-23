@@ -1,0 +1,22 @@
+<div id="cards" class="grid grid-cols-1 gap-4 sm:grid-cols-2 p-6 md:grid-cols-2 lg:grid-cols-3 xs:p-2 justify-items-center" infinite-scroll (scrolled)="scrollDown()">
+  <div class="xs:w-full sm:w-64 md:w-64 shadow-md rounded-lg bg-silver w-full min-w-max" *ngFor="let character of characteres; let i=index ">
+    <div class="w-full" (click)=" goDetailCharacter(character.id)">
+      <img src="{{character.image}}" alt="personajes" class="w-full h-48  rounded-lg">
+    </div>
+    <div class="px-3">
+      <p class="text-tahiti text-center text-xl"> {{character.name | slice: 0 : 15}}</p>
+      <p>{{character.status}}</p>
+      <p>{{character.species}}</p>
+      <p class="xs:truncate truncate">{{character.location.name | slice: 0 : 20}}</p>
+      <!-- <p >Ultimo episodio </p> TODO-->
+    </div>
+    <div class="flex flex-row-reverse">
+      <button data-tooltip-target="tooltip-hover" data-tooltip-trigger="hover"  class="px-4 pb-4 text-xl" (click)="addFavorite(character.name)">&hearts;</button>
+    </div>
+
+  </div>
+  <button [ngClass]="'no-hidden'"  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" *ngIf="showGoUpButton" (click)="scrollTop()">
+    Subir
+  </button>
+</div>
+
